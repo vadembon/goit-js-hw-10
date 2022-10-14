@@ -28,8 +28,6 @@ function renderCountry(data) {
     createMarkUpCountryList(data);
   } else if (data.length === 1) {
     createMarkUpCountryInfo(data);
-  } else if (data.length === 0) {
-    error(err);
   }
   console.log(data);
 }
