@@ -16,7 +16,11 @@ function onInputData(evt) {
   countryInfo.innerHTML = '';
   const searchInput = evt.target.value.trim();
   if (searchInput !== '') {
-    fetchCountries(searchInput).then(renderCountry).catch(error);
+    fetchCountries(searchInput)
+      .then(renderCountry)
+      .catch(err =>
+        Notiflix.Notify.failure('Oops, there is no country with that name')
+      );
   }
 }
 function renderCountry(data) {
@@ -60,7 +64,4 @@ function createMarkUpCountryInfo(obj) {
     .join('');
 
   countryInfo.innerHTML = markup;
-}
-function error(err) {
-  Notiflix.Notify.failure('Oops, there is no country with that name');
 }
