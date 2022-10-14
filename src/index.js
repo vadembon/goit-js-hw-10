@@ -17,13 +17,13 @@ function onInputData(evt) {
   const searchInput = evt.target.value.trim();
   if (searchInput !== '') {
     fetchCountries(searchInput)
-      .then(renderCountry)
+      .then(conditionsCountries)
       .catch(err =>
         Notiflix.Notify.failure('Oops, there is no country with that name')
       );
   }
 }
-function renderCountry(data) {
+function conditionsCountries(data) {
   if (data.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
